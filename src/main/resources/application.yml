@@ -1,0 +1,18 @@
+server:
+  port: 8421
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  mvc:
+    view:
+      suffix: /
+      prefix: .jsp
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+mybatis:
+  mapper-locations: classpath:com/baizhi/cmm/mapper/*Mapper.xml
