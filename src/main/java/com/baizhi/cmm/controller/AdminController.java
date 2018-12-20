@@ -19,10 +19,10 @@ public class AdminController {
 
     @RequestMapping("login")
     public String login(Admin admin, HttpSession session, String code) {
-        log.info(admin.toString());
         String scode = (String) session.getAttribute("code");
         if (!scode.equals(code)) throw new LoginException("验证码错误");
-        adminService.login(admin);
+        Admin ad = adminService.login(admin);
+        session.setAttribute("admin", ad);
         return "redirect:/main/main.jsp";
     }
 }

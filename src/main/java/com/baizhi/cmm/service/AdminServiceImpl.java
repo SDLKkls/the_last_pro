@@ -18,7 +18,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public void login(Admin admin) {
+    public Admin login(Admin admin) {
         Admin admin1 = new Admin();
         admin1.setUsername(admin.getUsername());
         List<Admin> list = adminMapper.select(admin1);
@@ -30,6 +30,6 @@ public class AdminServiceImpl implements AdminService {
             }
         }
         if (!b) throw new LoginException("密码错误");
-
+        return list.get(0);
     }
 }
