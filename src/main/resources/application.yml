@@ -25,3 +25,4 @@ spring:
       file-size-threshold: 0
 mybatis:
   mapper-locations: classpath:com/baizhi/cmm/mapper/*Mapper.xml
+  type-aliases-package: com.baizhi.cmm.entity

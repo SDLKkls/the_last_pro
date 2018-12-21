@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "chapter")
 public class Chapter implements Serializable {
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -25,11 +25,11 @@ public class Chapter implements Serializable {
 
     private String audioAddr;
 
-    private Album album;
-
     private Integer status;
 
     private Date uploadDate;
+
+    private Integer albumId;
 
 
 }
