@@ -9,8 +9,8 @@
             url: "${pageContext.request.contextPath}/album/getOneById",
             success: function (result) {
                 $("#albImg").prop("src", "${pageContext.request.contextPath}/center/img" + result.img);
-                $("#albId").textbox({
-                    value: result.id,
+                $("#albName").textbox({
+                    value: result.name,
                     readonly: true
                 });
                 $("#albcNum").textbox({
@@ -18,7 +18,7 @@
                     readonly: true
                 });
                 $("#albGName").textbox({
-                    value: result.name,
+                    value: result.guru.dharma,
                     readonly: true
                 });
                 $("#albBor").textbox({
@@ -47,7 +47,7 @@
 <table>
     <tr>
         <td>专辑名：</td>
-        <td><input id="albId"></td>
+        <td><input id="albName"></td>
     </tr>
     <tr>
         <td>章节数量：</td>

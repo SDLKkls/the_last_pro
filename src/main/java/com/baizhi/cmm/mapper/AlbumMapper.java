@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface AlbumMapper extends Mapper<Album> {
     List<Album> queryAll(int page, int rows);
+
+    Album selectOneById(Integer id);
+
+    void insertOne(Album album);
+
+    List<Album> getSimpleAll();
 }

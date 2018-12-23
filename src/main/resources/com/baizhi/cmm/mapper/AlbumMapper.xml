@@ -25,11 +25,41 @@
             <result column="audioAddr" property="audioAddr"></result>
             <result column="cstatus" property="status"></result>
             <result column="uploadDate" property="uploadDate"></result>
-            <result column="aid" property="albumId"></result>
+            <result column="caid" property="albumId"></result>
         </collection>
     </resultMap>
 
     <select id="queryAll" resultMap="r1">
+        select a.id           aid,
+               a.name         aname,
+               a.chapter_num  acnum,
+               a.broadcast    broadcast,
+               a.rating       rating,
+               a.img          aimg,
+               a.pub_date     pubDate,
+               a.brief        brief,
+               ch.id          cid,
+               ch.name        cname,
+               ch.size        csize,
+               ch.duration    duration,
+               ch.audio_addr  audioAddr,
+               ch.status      cstatus,
+               ch.album_id    caid,
+               ch.upload_date uploadDate,
+               g.id           gid,
+               g.dharma       dharma,
+               g.head_pic     headPic,
+               g.status       gstatus
+        from (select *
+              from album limit
+                   ${(page-1)*rows},
+                   #{rows}) a
+                 LEFT JOIN chapter ch ON a.id = ch.album_id
+                 LEFT JOIN guru g on
+                a.guru_id = g.id
+    </select>
+
+    <select id="selectOneById" resultMap="r1" parameterType="java.lang.Integer">
         select a.id           aid,
                a.name         aname,
                a.chapter_num  acnum,
@@ -50,11 +80,41 @@
                g.head_pic     headPic,
                g.status       gstatus
         from (select *
-              from album limit
-                   ${(page-1)*rows},
-                   #{rows}) a
+              from album
+              where id = #{id}) a
                  LEFT JOIN chapter ch ON a.id = ch.album_id
                  LEFT JOIN guru g on
                 a.guru_id = g.id
     </select>
+
+    <insert id="insertOne" parameterType="Album">
+        insert into album(name, chapter_num, guru_id, broadcast, rating, img, pub_date, brief)
+            value
+            (
+            #{name}
+            ,
+            #{chapterNum}
+            ,
+            #{guru.id}
+            ,
+            #{broadcast}
+            ,
+            #{rating}
+            ,
+            #{img}
+            ,
+            #{pubDate}
+            ,
+            #{brief}
+        )
+    </insert>
+
+    <select id="getSimpleAll" resultMap="r2">
+        select id,name
+        FROM album
+    </select>
+    <resultMap id="r2" type="Album">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+    </resultMap>
 </mapper>

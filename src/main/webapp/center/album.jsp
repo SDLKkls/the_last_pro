@@ -18,17 +18,23 @@
         }, '-', {
             text: "添加专辑",
             iconCls: 'icon-edit',
-            handler: function () {
+            onClick: function () {
+                $("#album_add-dialog").window("open");
             }
         }, '-', {
             text: "添加章节",
             iconCls: 'icon-remove',
             handler: function () {
+                $("#chapter_add-dialog").window("open");
             }
         }, '-', {
             text: "下载音频",
             iconCls: 'icon-save',
             handler: function () {
+                var node = $("#album-table").treegrid("getSelected");
+                if (isNaN(node.id)) {
+                    window.location.href = "${pageContext.request.contextPath}/chapter/download?id=" + node.id;
+                }
             }
         }];
         $("#album-table").treegrid({
@@ -82,8 +88,34 @@
             resizable: true,
             href: "${pageContext.request.contextPath}/center/album_msg.jsp"
         });
+        $("#album_add-dialog").dialog({
+            title: "添加专辑",
+            width: 400,
+            height: 400,
+            closed: true,
+            cache: false,
+            modal: true,
+            collapsible: true,
+            maximizable: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/center/addAlbum.jsp"
+        });
+        $("#chapter_add-dialog").dialog({
+            title: "添加章节",
+            width: 400,
+            height: 400,
+            closed: true,
+            cache: false,
+            modal: true,
+            collapsible: true,
+            maximizable: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/center/addChapter.jsp"
+        });
     });
 </script>
 
 <table id="album-table"></table>
 <div id="album_msg-dialog"></div>
+<div id="album_add-dialog"></div>
+<div id="chapter_add-dialog"></div>
