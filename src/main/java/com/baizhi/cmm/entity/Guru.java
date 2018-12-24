@@ -1,5 +1,6 @@
 package com.baizhi.cmm.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ public class Guru implements Serializable {
     @KeySql(useGeneratedKeys = true)
     private Integer id;
 
+    @Excel(name = "上师", needMerge = true)
     private String dharma;
 
     private String headPic;

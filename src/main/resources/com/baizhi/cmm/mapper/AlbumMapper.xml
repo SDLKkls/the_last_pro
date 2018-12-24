@@ -88,24 +88,25 @@
     </select>
 
     <insert id="insertOne" parameterType="Album">
-        insert into album(name, chapter_num, guru_id, broadcast, rating, img, pub_date, brief)
-            value
-            (
-            #{name}
-            ,
-            #{chapterNum}
-            ,
-            #{guru.id}
-            ,
-            #{broadcast}
-            ,
-            #{rating}
-            ,
-            #{img}
-            ,
-            #{pubDate}
-            ,
-            #{brief}
+        insert into album(name, chapter_num, guru_id, broadcast, rating, img, pub_date, brief
+        )
+        value
+        (
+        #{name}
+        ,
+        #{chapterNum}
+        ,
+        #{guru.id}
+        ,
+        #{broadcast}
+        ,
+        #{rating}
+        ,
+        #{img}
+        ,
+        #{pubDate}
+        ,
+        #{brief}
         )
     </insert>
 
@@ -117,4 +118,31 @@
         <id column="id" property="id"></id>
         <result column="name" property="name"></result>
     </resultMap>
+
+    <select id="queryAllNoPage" resultMap="r1">
+        select a.id           aid,
+               a.name         aname,
+               a.chapter_num  acnum,
+               a.broadcast    broadcast,
+               a.rating       rating,
+               a.img          aimg,
+               a.pub_date     pubDate,
+               a.brief        brief,
+               ch.id          cid,
+               ch.name        cname,
+               ch.size        csize,
+               ch.duration    duration,
+               ch.audio_addr  audioAddr,
+               ch.status      cstatus,
+               ch.album_id    caid,
+               ch.upload_date uploadDate,
+               g.id           gid,
+               g.dharma       dharma,
+               g.head_pic     headPic,
+               g.status       gstatus
+        from album a
+                 LEFT JOIN chapter ch ON a.id = ch.album_id
+                 LEFT JOIN guru g on
+                a.guru_id = g.id
+    </select>
 </mapper>

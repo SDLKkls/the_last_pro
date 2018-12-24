@@ -54,4 +54,15 @@ public class AlbumServiceImpl implements AlbumSerivce {
     public List<Album> getSimpleAll() {
         return albumMapper.getSimpleAll();
     }
+
+    @Override
+    public List<Album> getAll() {
+        return albumMapper.selectAll();
+    }
+
+    @Override
+    public List<Album> queryAllNoPage() {
+        return albumMapper.queryAllNoPage();
+    }
+
 }

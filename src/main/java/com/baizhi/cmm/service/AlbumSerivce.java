@@ -13,4 +13,8 @@ public interface AlbumSerivce {
     void insertOne(Album album);
 
     List<Album> getSimpleAll();
+
+    List<Album> getAll();
+
+    List<Album> queryAllNoPage();
 }

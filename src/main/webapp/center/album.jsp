@@ -36,6 +36,12 @@
                     window.location.href = "${pageContext.request.contextPath}/chapter/download?id=" + node.id;
                 }
             }
+        }, '-', {
+            text: "导出专辑",
+            iconCls: 'icon-save',
+            handler: function () {
+                window.location.href = "${pageContext.request.contextPath}/album/exportExcel";
+            }
         }];
         $("#album-table").treegrid({
             fit: true,

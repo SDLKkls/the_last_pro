@@ -83,6 +83,5 @@ public class ChapterController {
                 e.printStackTrace();
             }
         }
-        log.info("success");
     }
 }

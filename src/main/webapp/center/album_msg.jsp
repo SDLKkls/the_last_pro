@@ -8,7 +8,7 @@
             dataType: "JSON",
             url: "${pageContext.request.contextPath}/album/getOneById",
             success: function (result) {
-                $("#albImg").prop("src", "${pageContext.request.contextPath}/center/img" + result.img);
+                $("#albImg").prop("src", "${pageContext.request.contextPath}" + result.img);
                 $("#albName").textbox({
                     value: result.name,
                     readonly: true
