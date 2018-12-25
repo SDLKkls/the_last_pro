@@ -73,8 +73,4 @@ public class AlbumController {
         }
     }
 
-    @RequestMapping("/importExcel")
-    public void importExcel() {
-
-    }
 }

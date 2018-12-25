@@ -36,4 +36,9 @@ public class EasypoiTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void test2() {
+
+    }
 }

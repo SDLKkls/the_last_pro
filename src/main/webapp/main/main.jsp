@@ -12,6 +12,8 @@
     <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
     <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
     <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/china.js"></script>
     <script type="text/javascript">
         $(function () {
             /*发送ajax查询数据库中的所有一级分类*/
