@@ -1,5 +1,6 @@
 package com.baizhi.cmm.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,10 @@ public class User implements Serializable {
     @Id
     private Integer id;
 
+    @Excel(name = "账号")
     private String username;
 
+    @Excel(name = "密码")
     private String password;
 
     private Integer logStatus;
@@ -33,8 +36,10 @@ public class User implements Serializable {
 
     private Integer sex;
 
+    @Excel(name = "省份")
     private String province;
 
+    @Excel(name = "城市")
     private String city;
 
     private String signature;
@@ -45,6 +50,7 @@ public class User implements Serializable {
 
     private String salt;
 
+    @Excel(name = "注册时间")
     private Date regDate;
 
 

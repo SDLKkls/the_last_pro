@@ -20,4 +20,12 @@
         GROUP BY
             province
     </select>
+
+    <insert id="insertUserList">
+        insert into users(username,password,province,city,reg_date)
+        values
+        <foreach collection="list" separator="," item="us">
+            (#{us.username},#{us.password},#{us.province},#{us.city},#{us.regDate})
+        </foreach>
+    </insert>
 </mapper>

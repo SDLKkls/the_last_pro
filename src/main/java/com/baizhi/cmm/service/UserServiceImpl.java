@@ -1,6 +1,7 @@
 package com.baizhi.cmm.service;
 
 import com.baizhi.cmm.entity.Province;
+import com.baizhi.cmm.entity.User;
 import com.baizhi.cmm.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public List<Province> getAddressCount() {
         return userMapper.queryProvinceCount();
+    }
+
+    @Override
+    public void importUser(List<User> list) {
+        userMapper.insertUserList(list);
     }
 }

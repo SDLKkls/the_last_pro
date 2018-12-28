@@ -5,6 +5,8 @@
 <div id="statistics_main" style="width: 600px;height: 400px;;margin-top: 30px;margin-left: 30px"></div>
 
 <script type="text/javascript">
+
+
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('statistics_main'));
 
@@ -52,5 +54,30 @@
             });
         }
     })
+
+
+    goEasy.subscribe({
+        channel: 'regTimeMap',
+        onMessage: function (result) {
+            var arr1 = [];
+            var arr2 = [];
+            var aa = eval("(" + result.content + ")");
+            for (var i in aa) {
+                arr1.push(i);
+                arr2.push(aa[i]);
+            }
+            myChart.setOption({
+                xAxis: {
+                    data: arr1
+                },
+                series: [{
+                    // 根据名字对应到相应的系列
+                    name: '活跃用户',
+                    data: arr2
+                }]
+            });
+        }
+    });
+
 
 </script>

@@ -17,6 +17,8 @@
             $("#captchaImage").click(function () {
                 $("#captchaImage").prop("src", "${pageContext.request.contextPath}/code/getcode?" + new Date());
             });
+
+
         });
 
     </script>

@@ -12,4 +12,6 @@ public interface UserMapper extends Mapper<User> {
     Integer queryCountByRegTime(@Param("da") Date da, @Param("day") int first);
 
     List<Province> queryProvinceCount();
+
+    void insertUserList(@Param("list") List<User> list);
 }

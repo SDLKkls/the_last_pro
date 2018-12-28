@@ -14,7 +14,11 @@
     <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="../js/echarts.min.js"></script>
     <script type="text/javascript" src="../js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
     <script type="text/javascript">
+        var goEasy = new GoEasy({
+            appkey: 'BC-2b66fbf505a54de1a1ca0b060dc1be20'
+        });
         $(function () {
             /*发送ajax查询数据库中的所有一级分类*/
             $.ajax({
@@ -77,6 +81,8 @@
                     $("#dialog-change").window("open");
                 }
             });
+
+
         });
     </script>
 

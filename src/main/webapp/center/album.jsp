@@ -42,6 +42,12 @@
             handler: function () {
                 window.location.href = "${pageContext.request.contextPath}/album/exportExcel";
             }
+        }, '-', {
+            text: "导入用户",
+            iconCls: 'icon-save',
+            handler: function () {
+                $("#import_dialog").window("open");
+            }
         }];
         $("#album-table").treegrid({
             fit: true,
@@ -118,6 +124,19 @@
             resizable: true,
             href: "${pageContext.request.contextPath}/center/addChapter.jsp"
         });
+
+        $("#import_dialog").dialog({
+            title: "导入",
+            width: 400,
+            height: 400,
+            closed: true,
+            cache: false,
+            modal: true,
+            collapsible: true,
+            maximizable: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/center/import.jsp"
+        })
     });
 </script>
 
@@ -125,3 +144,4 @@
 <div id="album_msg-dialog"></div>
 <div id="album_add-dialog"></div>
 <div id="chapter_add-dialog"></div>
+<div id="import_dialog"></div>
