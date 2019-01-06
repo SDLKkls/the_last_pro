@@ -26,7 +26,7 @@
 <body>
 
 <div class="login">
-    <form id="loginForm" action="${pageContext.request.contextPath}/admin/login" method="post">
+    <form id="loginForm" action="${pageContext.request.contextPath}/admin/loginAdmin" method="post">
 
         <table>
             <tbody>

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,5 +22,11 @@ public class Admin implements Serializable {
     private String password;
 
     private String realName;
+
+    private List<Role> roleList;
+
+    public Admin(String username) {
+        this.username = username;
+    }
 
 }
